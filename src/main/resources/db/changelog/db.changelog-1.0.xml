@@ -28,7 +28,7 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="pric" type="int">
+            <column name="price" type="int">
                 <constraints nullable="false"/>
             </column>
 

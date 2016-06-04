@@ -12,8 +12,8 @@ import java.sql.SQLException;
 @SpringBootApplication
 public class Start {
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws SQLException {
         SpringApplication.run(Start.class, args);
+        DBInitializer.checkData();
     }
 }

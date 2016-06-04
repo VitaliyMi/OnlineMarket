@@ -58,7 +58,7 @@ public class Dish implements Serializable{
         this.dishName = name;
     }
 
-    @Column(name = "pric")
+    @Column(name = "price")
     public float getPrice() {
         return price;
     }

@@ -49,12 +49,12 @@ public class DBInitializer {
     private static Connection con ;
     private static Statement stmt;
 
-   /* static
+    static
     {
         try
         {
             Class.forName("org.h2.Driver");
-            con = DriverManager.getConnection("jdbc:h2:mem:test", "sa", "");
+            con = DriverManager.getConnection("jdbc:h2:mem:testdb", "sa", "");
             stmt = con.createStatement();
         }
         catch (Exception e)
@@ -62,7 +62,7 @@ public class DBInitializer {
             e.printStackTrace();
         }
     }
-*/
+
     public static void initializeAndPopulateDB() throws SQLException {
         try
         {
@@ -102,7 +102,7 @@ public class DBInitializer {
 
     }
 
-    private static void checkData() throws SQLException {
+    public static void checkData() throws SQLException {
             ResultSet rs = stmt.executeQuery("SELECT * FROM dishes");
             while (rs.next())
             {
@@ -139,7 +139,12 @@ private static void createUsersTable() throws SQLException
 
     public static void main(String[] args) {
         try {
-            AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+            stmt.executeUpdate("DROP TABLE IF EXISTS users");
+
+            stmt.executeUpdate("DROP TABLE IF EXISTS dishes");
+
+            stmt.executeUpdate("DROP TABLE IF EXISTS transactions");
+          /*  AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
             ctx.register(AppConfig.class);
             ctx.refresh();
             daoClass = (DAOClass) ctx.getBean("daoClass");
@@ -172,7 +177,7 @@ private static void createUsersTable() throws SQLException
                 System.out.println(t.getDish().getName()+ t.getDish().getPrice());
             }
             System.out.println(c.getTransactions());
-            System.out.println("finish");
+            System.out.println("finish");*/
         } catch (SQLException e) {
             e.printStackTrace();
         }

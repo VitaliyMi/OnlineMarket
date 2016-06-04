@@ -1,0 +1,69 @@
+databaseChangeLog:
+ - changeSet:
+      id: 1
+      author: Vitaliy
+      changes:
+        - createTable:
+           tableName: users
+           columns:
+             - column:
+                name: user_id
+                type: int
+                autoIncrement: true
+                constraints:
+                  primaryKey: true
+                  nullable: false
+             - column:
+                name: userName
+                type: varchar(50)
+                constraints:
+                  nullable: false
+        - createTable:
+           tableName: dishes
+           columns:
+             - column:
+                name: dish_id
+                type: int
+                autoIncrement: true
+                constraints:
+                  primaryKey: true
+                  nullable: false
+             - column:
+                name: dishName
+                type: varchar(50)
+                constraints:
+                  nullable: false
+             - column:
+                name: price
+                type: int
+                constraints:
+                  nullable: false
+        - createTable:
+           tableName: transactions
+           columns:
+             - column:
+                name: transaction_id
+                type: int
+                autoIncrement: true
+                constraints:
+                   primaryKey: true
+                   nullable: false
+             - column:
+                name: dish_id
+                type: int
+                constraints:
+                   nullable: false
+                   foreignKeyName: dish_ID
+                   references: dishes(dish_id)
+             - column:
+                name: user_id
+                type: int
+                constraints:
+                   nullable: false
+                   foreignKeyName: user_ID
+                   references: users(user_id)
+             - column:
+                name: amount
+                type: int
+                constraints:
+                    nullable: false
