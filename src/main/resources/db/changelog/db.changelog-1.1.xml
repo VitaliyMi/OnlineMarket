@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2" author="Vitaliy">
+        <insert tableName="dishes">
+            <column name="dishName" value="Frog legs"/>
+            <column name="pric" value="12"/>
+            <column name="url" value="http://oddstuffmagazine.com/wp-content/uploads/2010/09/Fried-frog-legs.jpg"/>
+        </insert>
+
+        <insert tableName="dishes">
+            <column name="dishName" value="Fried potatoes"/>
+            <column name="pric" value="2"/>
+            <column name="url" value="http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/food/2014/11/28/AustralianTableBR113278/pan-fried-potatoes.jpg"/>
+        </insert>
+
+        <insert tableName="dishes">
+            <column name="dishName" value="Greek salad"/>
+            <column name="pric" value="5"/>
+            <column name="url" value="http://www.laaloosh.com/wp-content/uploads/2015/09/Greek-Salad-2-675x462.jpg"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>
