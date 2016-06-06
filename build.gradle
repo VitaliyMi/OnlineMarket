@@ -24,6 +24,9 @@ dependencies {
     compile"org.springframework.boot:spring-boot-starter-web:1.0.1.RELEASE"
     compile"org.springframework.boot:spring-boot-starter-jdbc:1.0.1.RELEASE"
     compile"org.springframework.boot:spring-boot-starter-actuator:1.0.1.RELEASE"
+    compile "org.springframework.data:spring-data-jpa:1.10.1.RELEASE"
+    compile "commons-dbcp:commons-dbcp:1.4"
+
 
     compile"org.apache.tomcat.embed:tomcat-embed-jasper"
     compile "org.liquibase:liquibase-core:3.4.2"

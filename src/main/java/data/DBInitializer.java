@@ -137,7 +137,7 @@ private static void createUsersTable() throws SQLException
 
     }
 
-    public static void main(String[] args) {
+    public static void delete() {
         try {
             stmt.executeUpdate("DROP TABLE IF EXISTS users");
 
