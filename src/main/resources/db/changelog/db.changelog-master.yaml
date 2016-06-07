@@ -38,6 +38,11 @@ databaseChangeLog:
                 type: int
                 constraints:
                   nullable: false
+             - column:
+                name: url
+                type: varchar(200)
+                constraints:
+                  nullable: false
         - createTable:
            tableName: transactions
            columns:
@@ -67,3 +72,43 @@ databaseChangeLog:
                 type: int
                 constraints:
                     nullable: false
+ - changeSet:
+       id: 2
+       author: Vitaliy
+       changes:
+         - insert:
+             tableName: dishes
+             columns:
+               - column:
+                   name: dishName
+                   value: Frog legs
+               - column:
+                   name: price
+                   value: 12
+               - column:
+                   name: url
+                   value: http://oddstuffmagazine.com/wp-content/uploads/2010/09/Fried-frog-legs.jpg
+         - insert:
+             tableName: dishes
+             columns:
+               - column:
+                   name: dishName
+                   value: Fried potstoes
+               - column:
+                   name: price
+                   value: 2
+               - column:
+                   name: url
+                   value: http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/food/2014/11/28/AustralianTableBR113278/pan-fried-potatoes.jpg
+         - insert:
+             tableName: dishes
+             columns:
+               - column:
+                   name: dishName
+                   value: Greek salad
+               - column:
+                   name: price
+                   value: 5
+               - column:
+                   name: url
+                   value: http://www.laaloosh.com/wp-content/uploads/2015/09/Greek-Salad-2-675x462.jpg

@@ -2,12 +2,16 @@ package application; /**
  * Created by MSI on 20.04.2016.
  */
 import data.DAOClass;
+import data.dishaccess.DishesRepository;
 import model.Client;
 import model.Dish;
 import model.comparators.SortByName;
 import model.comparators.SortByPrice;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -25,8 +29,17 @@ import java.util.*;
 @SessionAttributes(types = Client.class)
 public class MainController {
 
+    private static ClassPathXmlApplicationContext ctx;
+    static
+    {
+        ctx = new ClassPathXmlApplicationContext(
+                "applicationContext.xml");
+    }
     @Autowired
     DAOClass dao;
+
+
+    DishesRepository repository;
 
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome()
@@ -36,9 +49,10 @@ public class MainController {
 
     @RequestMapping("/addClient")
     public ModelAndView requestHandlingMethod(Client client) {
+        repository=ctx.getBean(DishesRepository.class);
         ModelAndView model = new ModelAndView();
        // System.out.println(client.getName());
-        List<Dish> menu=dao.getMenu();
+        List<Dish> menu= (List<Dish>) repository.findAll();
           Collections.sort(menu, new SortByPrice());
        // Collections.sort(menu, new SortByName());
         for (Dish d : menu)

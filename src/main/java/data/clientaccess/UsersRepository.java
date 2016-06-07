@@ -10,7 +10,8 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface UsersRepository extends CrudRepository<Client, Integer>, JpaSpecificationExecutor<Client>{
+public interface UsersRepository extends CrudRepository<Client, Integer>, JpaSpecificationExecutor<Client>
+ {
     Client findByName(String userName);
 
 }
