@@ -1,27 +1,16 @@
 package application; /**
  * Created by MSI on 20.04.2016.
  */
-import data.DAOClass;
 import data.dishaccess.DishesRepository;
 import model.Client;
 import model.Dish;
-import model.comparators.SortByName;
 import model.comparators.SortByPrice;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
 
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.util.*;
 
 @Controller
@@ -29,14 +18,16 @@ import java.util.*;
 @SessionAttributes(types = Client.class)
 public class MainController {
 
-    private static ClassPathXmlApplicationContext ctx;
+    private static AnnotationConfigApplicationContext ctx;
     static
     {
-        ctx = new ClassPathXmlApplicationContext(
-                "applicationContext.xml");
+
+       ctx = new AnnotationConfigApplicationContext();
+        ctx.register(AppConfig.class);
+        ctx.refresh();
     }
-    @Autowired
-    DAOClass dao;
+ //   @Autowired
+ //   DAOClass dao;
 
 
     DishesRepository repository;

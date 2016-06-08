@@ -1,16 +1,9 @@
 package data;
 
-import application.AppConfig;
-import model.Client;
-import model.Dish;
-import model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.*;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by MSI on 19.05.2016.
@@ -145,7 +138,7 @@ private static void createUsersTable() throws SQLException
 
             stmt.executeUpdate("DROP TABLE IF EXISTS transactions");
           /*  AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-            ctx.register(AppConfig.class);
+            ctx.register(.application.AppConfig.class);
             ctx.refresh();
             daoClass = (DAOClass) ctx.getBean("daoClass");
             initializeAndPopulateDB();

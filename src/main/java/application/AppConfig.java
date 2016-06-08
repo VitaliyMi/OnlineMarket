@@ -2,6 +2,7 @@ package application;
 
 import data.DAOClass;
 import data.DAOHibernateImpl;
+import data.dishaccess.DishesRepository;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -9,12 +10,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.sql.DataSource;
+import java.sql.SQLException;
 import java.util.Properties;
 
 /**
@@ -23,11 +26,11 @@ import java.util.Properties;
 
 @Configuration
 @ComponentScan("java")
-@EnableJpaRepositories(basePackages = "data.dishaccess")
+@EnableJpaRepositories(basePackageClasses=DishesRepository.class)
 @EnableAutoConfiguration
 public class AppConfig {
 
-    @Bean
+  /*  @Bean
     public EntityManager entityManager()
    {
        EntityManagerFactory emf = Persistence.createEntityManagerFactory("MarketOnline");
@@ -39,7 +42,7 @@ public class AppConfig {
     {
         return new DAOHibernateImpl();
     }
-
+*/
 
     @Bean(destroyMethod = "close")
     public DataSource dataSource() {
@@ -62,13 +65,20 @@ public class AppConfig {
         return entityManager;
     }
 
+    @Bean
+    public JpaTransactionManager transactionManager() throws SQLException {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+        return transactionManager;
+    }
+
+
     private static Properties jpaProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
         properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
         return properties;
     }
-
 
 
 }

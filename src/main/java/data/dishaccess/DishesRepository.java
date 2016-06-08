@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface DishesRepository  extends CrudRepository<Dish, Integer>, JpaSpecificationExecutor<Dish>{
-    Dish findByName();
+    Dish findByDishName(String dishName);
 }
