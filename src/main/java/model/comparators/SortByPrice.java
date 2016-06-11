@@ -1,6 +1,6 @@
 package model.comparators;
 
-import model.Dish;
+import model.entities.Dish;
 
 import java.util.Comparator;
 

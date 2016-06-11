@@ -9,6 +9,8 @@ import java.sql.SQLException;
 /**
  * Created by MSI on 17.05.2016.
  */
+
+
 @SpringBootApplication
 public class Start {
 
@@ -16,4 +18,5 @@ public class Start {
         SpringApplication.run(Start.class, args);
         DBInitializer.checkData();
     }
+
 }

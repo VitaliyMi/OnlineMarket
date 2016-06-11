@@ -4,7 +4,7 @@ package data;
 import application.AppConfig;
 import data.clientaccess.UsersRepository;
 import data.dishaccess.DishesRepository;
-import model.Dish;
+import model.entities.Dish;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

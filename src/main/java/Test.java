@@ -1,8 +1,11 @@
 import application.AppConfig;
 import data.dishaccess.DishesRepository;
-import model.Dish;
+import model.comparators.SortByPrice;
+import model.entities.Dish;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -11,13 +14,6 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-            ctx.register(AppConfig.class);
-            ctx.refresh();
 
-
-        DishesRepository dishesRepository=ctx.getBean(DishesRepository.class);
-
-        List<Dish> d= (List<Dish>) dishesRepository.findAll();
-    }
+}
 }

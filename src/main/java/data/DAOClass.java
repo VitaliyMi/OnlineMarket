@@ -1,8 +1,8 @@
 package data;
 
-import model.Client;
-import model.Dish;
-import model.Transaction;
+import model.entities.Client;
+import model.entities.Dish;
+import model.entities.Transaction;
 
 import java.util.List;
 

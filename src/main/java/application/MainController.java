@@ -2,9 +2,10 @@ package application; /**
  * Created by MSI on 20.04.2016.
  */
 import data.dishaccess.DishesRepository;
-import model.Client;
-import model.Dish;
+import model.entities.Client;
+import model.entities.Dish;
 import model.comparators.SortByPrice;
+import model.logic.ServiceLayer;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -18,19 +19,7 @@ import java.util.*;
 @SessionAttributes(types = Client.class)
 public class MainController {
 
-    private static AnnotationConfigApplicationContext ctx;
-    static
-    {
-
-       ctx = new AnnotationConfigApplicationContext();
-        ctx.register(AppConfig.class);
-        ctx.refresh();
-    }
- //   @Autowired
- //   DAOClass dao;
-
-
-    DishesRepository repository;
+    ServiceLayer serviceLayer = ServiceLayer.getInstance();
 
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome()
@@ -40,19 +29,10 @@ public class MainController {
 
     @RequestMapping("/addClient")
     public ModelAndView requestHandlingMethod(Client client) {
-        repository=ctx.getBean(DishesRepository.class);
         ModelAndView model = new ModelAndView();
-       // System.out.println(client.getName());
-        List<Dish> menu= (List<Dish>) repository.findAll();
-          Collections.sort(menu, new SortByPrice());
-       // Collections.sort(menu, new SortByName());
-        for (Dish d : menu)
-        {
-            System.out.println(d);
-        }
+        List<Dish> menu= serviceLayer.getMenu();
         model.addObject("menuList", menu);
         model.setViewName("menulist");
-
         return model;
     }
 

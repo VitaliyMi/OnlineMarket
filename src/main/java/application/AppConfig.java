@@ -26,11 +26,11 @@ import java.util.Properties;
 
 @Configuration
 @ComponentScan("java")
-@EnableJpaRepositories(basePackageClasses=DishesRepository.class)
+//@EnableJpaRepositories(basePackageClasses=DishesRepository.class)
 @EnableAutoConfiguration
 public class AppConfig {
 
-  /*  @Bean
+    @Bean
     public EntityManager entityManager()
    {
        EntityManagerFactory emf = Persistence.createEntityManagerFactory("MarketOnline");
@@ -42,43 +42,5 @@ public class AppConfig {
     {
         return new DAOHibernateImpl();
     }
-*/
-
-    @Bean(destroyMethod = "close")
-    public DataSource dataSource() {
-        BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setDriverClassName("org.h2.Driver");
-        basicDataSource.setUrl("jdbc:h2:mem:testdb");
-        basicDataSource.setUsername("sa");
-        basicDataSource.setPassword("");
-        return (DataSource) basicDataSource;
-    }
-
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean entityManager = new LocalContainerEntityManagerFactoryBean();
-        entityManager.setDataSource(dataSource());
-        entityManager.setPackagesToScan("data");
-        entityManager.setPersistenceProvider(new HibernatePersistenceProvider());
-        entityManager.setJpaProperties(jpaProperties());
-
-        return entityManager;
-    }
-
-    @Bean
-    public JpaTransactionManager transactionManager() throws SQLException {
-        JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
-        return transactionManager;
-    }
-
-
-    private static Properties jpaProperties() {
-        Properties properties = new Properties();
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-        properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-        return properties;
-    }
-
 
 }

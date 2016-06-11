@@ -1,7 +1,6 @@
-package model;
+package model.entities;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * Created by MSI on 22.05.2016.

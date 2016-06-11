@@ -1,9 +1,6 @@
 package data.clientaccess;
 
-import model.Client;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import model.entities.Client;
 
 /**
  * Created by MSI on 05.06.2016.
