@@ -27,16 +27,16 @@ public class ServiceLayer {
     }
 
 
-//    DAOClass daoClass= (DAOClass) ctx.getBean("daoClass");
-    DishesRepository repository= ctx.getBean(DishesRepository.class);
-
+//    @Autowired
+    DAOClass daoClass= (DAOClass) ctx.getBean("daoClass");
+//    DishesRepository repository= ctx.getBean(DishesRepository.class);
 
     private ServiceLayer(){}
+
     private static ServiceLayer instance;
 
-
-    private List<Dish> cachedMenu = (List<Dish>) repository.findAll();
-//    private List<Dish> cachedMenu = daoClass.getMenu();
+//    private List<Dish> cachedMenu = (List<Dish>) repository.findAll();
+    private List<Dish> cachedMenu = daoClass.getMenu();
 
     public static ServiceLayer getInstance()
     {
