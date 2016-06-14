@@ -6,6 +6,7 @@ import data.dishaccess.DishesRepository;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -26,7 +27,8 @@ import java.util.Properties;
 
 @Configuration
 @ComponentScan("java")
-//@EnableJpaRepositories(basePackageClasses=DishesRepository.class)
+@EnableJpaRepositories("data")
+@EntityScan("model.entities")
 @EnableAutoConfiguration
 public class AppConfig {
 
@@ -43,4 +45,10 @@ public class AppConfig {
         return new DAOHibernateImpl();
     }
 
+    @Bean
+    public EntityManagerFactory entityManagerFactory()
+    {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("MarketOnline");
+        return entityManagerFactory;
+    }
 }
