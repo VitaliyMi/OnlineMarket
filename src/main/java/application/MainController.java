@@ -33,6 +33,7 @@ public class MainController {
         List<Dish> menu= serviceLayer.getMenu();
         model.addObject("menuList", menu);
         model.setViewName("menulist");
+        serviceLayer.addDish();
         return model;
     }
 

@@ -40,7 +40,7 @@ public class Dish implements Serializable{
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "dish_id")
     public long getId() {
         return id;

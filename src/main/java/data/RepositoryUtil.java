@@ -21,7 +21,7 @@ public class RepositoryUtil {
     }
 
     private UsersRepository usersRepository;
-    @Autowired
+//    @Autowired
     private static DishesRepository dishRepository=ctx.getBean(DishesRepository.class);
 
 

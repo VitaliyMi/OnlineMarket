@@ -5,7 +5,7 @@ package model.entities;
  */
 import javax.persistence.*;
 
-@Entity
+//@Entity
 @Table(name="Photos")
 public class Photo {
     @Id

@@ -1,6 +1,7 @@
 package model.logic;
 
 import application.AppConfig;
+import application.Start;
 import data.DAOClass;
 import data.dishaccess.DishesRepository;
 import model.comparators.SortByPrice;
@@ -28,15 +29,15 @@ public class ServiceLayer {
 
 
 //    @Autowired
-    DAOClass daoClass= (DAOClass) ctx.getBean("daoClass");
-//    DishesRepository repository= ctx.getBean(DishesRepository.class);
+//    DAOClass daoClass= (DAOClass) ctx.getBean("daoClass");
+    DishesRepository repository= ctx.getBean(DishesRepository.class);
 
     private ServiceLayer(){}
-
     private static ServiceLayer instance;
 
-//    private List<Dish> cachedMenu = (List<Dish>) repository.findAll();
-    private List<Dish> cachedMenu = daoClass.getMenu();
+
+    private List<Dish> cachedMenu = (List<Dish>) repository.findAll();
+//    private List<Dish> cachedMenu = daoClass.getMenu();
 
     public static ServiceLayer getInstance()
     {
@@ -59,6 +60,15 @@ public class ServiceLayer {
         return sortedMenu;
     }
 
+    public void addDish()
+    {
+        Dish d = new Dish("Hleb");
+        d.setPrice(12);
+        d.setUrl("url");
+        repository.save(d);
+        System.out.println("Supposed to be saved");
+        cachedMenu= (List<Dish>) repository.findAll();
+    }
 
 
 }
