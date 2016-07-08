@@ -1,12 +1,9 @@
 package application; /**
  * Created by MSI on 20.04.2016.
  */
-import data.dishaccess.DishesRepository;
 import model.entities.Client;
 import model.entities.Dish;
-import model.comparators.SortByPrice;
-import model.logic.ServiceLayer;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,7 +16,8 @@ import java.util.*;
 @SessionAttributes(types = Client.class)
 public class MainController {
 
-    ServiceLayer serviceLayer = ServiceLayer.getInstance();
+    @Autowired
+    Service service;
 
     @RequestMapping(method = RequestMethod.GET)
     public String printWelcome()
@@ -30,10 +28,10 @@ public class MainController {
     @RequestMapping("/addClient")
     public ModelAndView requestHandlingMethod(Client client) {
         ModelAndView model = new ModelAndView();
-        List<Dish> menu= serviceLayer.getMenu();
+        List<Dish> menu= service.getMenu();
         model.addObject("menuList", menu);
         model.setViewName("menulist");
-        serviceLayer.addDish();
+        service.addDish();
         return model;
     }
 

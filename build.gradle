@@ -1,6 +1,5 @@
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'spring-boot'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -21,7 +20,7 @@ dependencies {
     testCompile "com.fasterxml.jackson.core:jackson-databind:2.2.1"
 
 
-    compile group: 'org.springframework', name: 'spring-test', version: '4.3.0.RELEASE'
+ //   compile group: 'org.springframework', name: 'spring-test', version: '4.3.0.RELEASE'
     compile 'org.hibernate:hibernate-core:5.1.0.Final'
     compile 'org.springframework:spring-webmvc'
     compile 'org.hibernate:hibernate-entitymanager:5.1.0.Final'
