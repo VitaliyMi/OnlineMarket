@@ -1,6 +1,5 @@
 package application;
 
-import application.AppConfig;
 import data.dishaccess.DishesRepository;
 import model.comparators.SortByPrice;
 import model.entities.Dish;
