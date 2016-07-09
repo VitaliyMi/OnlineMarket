@@ -53,12 +53,9 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.5.RELEASE")
     }
 }
-task copyToLib(type: Copy) {
-    into "$buildDir/lib"
-    from(configurations.compile)
+task stage {
+    dependsOn build
 }
-
-stage.dependsOn(copyToLib)
 
 
 apply plugin: 'org.liquibase.gradle'
