@@ -69,7 +69,7 @@ public class WebApplicationContextTodoControllerTest {
       //  repository.save(d);
     }
 
-    @Test
+  //  @Test
     public void countDishes()
     {
         List<Dish> dishList = (List<Dish>) repository.findAll();
