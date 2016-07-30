@@ -11,30 +11,7 @@
 <div class="container">
     <h3>Here you will find our menu</h3>
     Sort by
-    <select name ="sortOption">
-        <option>Price</option>
-        <option>Description</option>
-    </select>
-    <form:form method="POST" modelAttribute="order" action="/processOrder">
-        <table>
-            <tr>
-                <td>
-                    <ul>
-                        <spring:bind path="orders">
-                        <form:checkboxes element="li" path="orders" items="${menuList}"/>
-                        </spring:bind>
-                    </ul>
-
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" value="Submit"/>
-                </td>
-            </tr>
-        </table>
-    </form:form>
-
+   
 
 
     <form action="/processOrder">
