@@ -71,4 +71,10 @@ public class ServiceLayer implements Service {
         System.out.println("Supposed to be saved");
         cachedMenu= (List<Dish>) repository.findAll();
     }
+
+    public Dish findByName(String name)
+    {
+       Dish dish = (Dish)repository.findByNameIgnoreCase(name);
+        return dish;
+    }
 }

@@ -14,18 +14,17 @@ public class Client implements Serializable{
 
     public  Client()
     {
-        this.userName = "Noname";
     }
 
     public Client(String name)
     {
-        this.userName = name;
+        this.name = name;
 
     }
 
     private long id;
 
-    private String userName;
+    private String name;
 
     private List<Transaction> transactions= new ArrayList<Transaction>(0);
 
@@ -54,11 +53,11 @@ public class Client implements Serializable{
 
     @Column(name = "userName")
     public String getName() {
-        return userName;
+        return name;
     }
 
     public void setName(String name) {
-        this.userName = name;
+        this.name = name;
     }
 
     public void addTransactions(List<Transaction> transactionList)

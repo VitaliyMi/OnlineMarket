@@ -1,11 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Online Market</title>
 </head>
 <body>
+<cut value= "${client}"/>
 <div class="container">
     <h3>Here you will find our menu</h3>
     Sort by
@@ -13,17 +15,39 @@
         <option>Price</option>
         <option>Description</option>
     </select>
+    <form:form method="POST" modelAttribute="order" action="/processOrder">
+        <table>
+            <tr>
+                <td>
+                    <ul>
+                        <spring:bind path="orders">
+                        <form:checkboxes element="li" path="orders" items="${menuList}"/>
+                        </spring:bind>
+                    </ul>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Submit"/>
+                </td>
+            </tr>
+        </table>
+    </form:form>
+
+
+
     <form action="/processOrder">
-    <table>
-       <th colspan="2">Dish</th><th>Price</th>
-    <c:forEach var="dish" items ="${menuList}">
-       <tr><td> <c:out value="${dish.name}"/></td>
-        <td><img src="<c:out value="${dish.url}"/>"height="200", width="250"></td>
-        <td><c:out value="${dish.price}"/></td>
-        <td><input type="number" name="numberof<c:out value="${dish.id}"/>" min =1 max =30></td>
-        <td><input type="checkbox" name="selected<c:out value="${dish.id}"/>" min =1 max =30></td></tr>
-    </c:forEach>
-    </table>
+        <table>
+            <th colspan="2">Dish</th><th>Price</th>
+            <c:forEach var="dish" items ="${menuList}">
+                <tr><td> <c:out value="${dish.name}"/></td>
+                    <td><img src="<c:out value="${dish.url}"/>"height="200", width="250"></td>
+                    <td><c:out value="${dish.price}"/></td>
+                    <td><input type="number" name="numberof<c:out value="${dish.name}"/>" min =1 max =30></td>
+                    <td><input type="checkbox" name="selected" value="<c:out value="${dish.name}"/>" min =1 max =30></td></tr>
+            </c:forEach>
+        </table>
 
 
 
@@ -33,3 +57,4 @@
 </div>
 </body>
 </html>
+

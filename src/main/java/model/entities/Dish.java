@@ -94,6 +94,6 @@ public class Dish implements Serializable{
 
     @Override
     public String toString() {
-        return "["+ this.dishName+"\t"+this.getPrice()+"]";
+        return "["+ this.dishName+"\t"+this.getPrice()+"<img src="+this.getUrl()+">]";
     }
 }

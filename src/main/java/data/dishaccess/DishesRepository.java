@@ -18,4 +18,6 @@ public interface DishesRepository  extends Repository<Dish, Integer> {
    // Dish findByName(String name);
 
    List<Dish> findAll();
+
+   Dish findByNameIgnoreCase(String dishName);
 }

@@ -23,4 +23,6 @@ public interface Service {
 
     public void addDish();
 
+    public Dish findByName(String name);
+
 }

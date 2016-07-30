@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -8,12 +9,12 @@
 <div class="container">
     <h3>Hello, please introduce yourself!</h3>
     <h4>Are you ${client.name} again</h4>
-    <form action="/addClient" method="post">
+    <form:form action="/addClient" modelAttribute="client" method="post">
 
         Hi, my name is:<br>
-        <input type="text" name="name" value="Name" required><br><br>
+        <form:input type="text" path="name" value="Name"/><br><br>
         <input type="submit" value="Go to menu">
-    </form>
+    </form:form>
 
 </div>
 </body>
