@@ -12,7 +12,7 @@
     <form:form action="/addClient" modelAttribute="client" method="post">
 
         Hi, my name is:<br>
-        <form:input type="text" path="name" value="Name"/><br><br>
+        <form:input type="text" path="name" placeholder="Your name"/><br><br>
         <input type="submit" value="Go to menu">
     </form:form>
 

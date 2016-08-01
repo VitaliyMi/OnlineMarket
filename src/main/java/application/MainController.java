@@ -1,15 +1,18 @@
 package application; /**
  * Created by MSI on 20.04.2016.
  */
+import model.comparators.ComparatorFactory;
 import model.entities.Client;
 import model.entities.Dish;
 import model.entities.Order;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.*;
 
 @Controller
@@ -23,8 +26,7 @@ public class MainController {
     Service service;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView printWelcome()
-    {
+    public ModelAndView printWelcome() {
         ModelAndView mav = new ModelAndView("index");
         mav.addObject("client", new Client());
         return mav;
@@ -32,43 +34,62 @@ public class MainController {
 
 
     @RequestMapping("/addClient")
-    public ModelAndView requestHandlingMethod(HttpServletRequest request,@ModelAttribute Client client) {
-        String name = request.getParameter("name");
-        System.out.println("Clientname: "+ client.getName());
+    public ModelAndView requestHandlingMethod(HttpServletRequest request, @ModelAttribute Client client) {
+        String sorter = request.getParameter("sorter");
+        Comparator<Dish> comparator = ComparatorFactory.buildComparator(sorter);
+        List<Dish> menu = service.getMenu();
+        if (comparator != null) {
+            Collections.sort(menu, comparator);
+        }
         ModelAndView model = new ModelAndView("menulist");
-        List<Dish> menu= service.getMenu();
         model.addObject("menuList", menu);
-        Order o = new Order();
-        model.addObject("order", o);
-    //    model.addObject("client",client);
         return model;
     }
 
 
-    @RequestMapping(value = "/processOrder")
-    public ModelAndView showCart(@ModelAttribute Client client, HttpServletRequest request)
-    {
-
-        System.out.println("Client in result: "+client.getName());
-        Order order = new Order(client);
-        String[] orderedDishesNames =request.getParameterValues("selected");
-        System.out.println(orderedDishesNames==null? "order is null":"Ok");
-        for(String s: orderedDishesNames)
-        {
-            Dish dish = service.findByName(s);
-            System.out.println(dish.getName()+"\t "+ dish.getPrice());
-            int piecesOrdered =Integer.parseInt(request.getParameter("numberof" + s));
-            order.addDishAndAmountToOrderList(dish,piecesOrdered);
-        }
-        ModelAndView mav =new ModelAndView("result");
-        orders.add(order);
-        mav.addObject("orders", orders);
-
-        for (Order o: orders)
-        {
-            System.out.println(o.getClient().getName());
-            System.out.println(o.getOrders());
-        }
+    @RequestMapping(value = "/viewCart")
+    public ModelAndView showCart(HttpServletRequest request,@ModelAttribute Client client) {
+        Order order = getOrderInformation(request, client);
+        System.out.println(order.getClient());
+        System.out.println(order.getOrders());
+        ModelAndView mav = new ModelAndView("cart");
+        mav.addObject(order);
+        request.getSession().setAttribute("order", order);
         return mav;
     }
+
+   @RequestMapping(value = "/prosesOrder")
+    public String prosesOrder(@ModelAttribute Client client, HttpServletRequest request)
+    {
+        Order order = (Order) request.getSession().getAttribute("order");
+        System.out.println(order.getClient().getName());
+        orders.add(order);
+        return "thanks";
+
+    }
+
+
+    @RequestMapping(value = "/showResult")
+    public ModelAndView showResult(HttpSession session, @ModelAttribute Client client)
+    {
+        ModelAndView mav =new ModelAndView("result");
+        mav.addObject("orders", orders);
+        return mav;
+    }
+
+    private Order getOrderInformation(HttpServletRequest requestWithOrderInformation, Client client)
+    {
+        Order order= new Order(client);
+        String[] orderedDishesNames = requestWithOrderInformation.getParameterValues("selected");
+
+        for (String s : orderedDishesNames) {
+            Dish dish = service.findByName(s);
+            System.out.println(dish.getName() + "\t " + dish.getPrice());
+            int piecesOrdered = Integer.parseInt(requestWithOrderInformation.getParameter("numberof" + s));
+            order.addDishAndAmountToOrderList(dish, piecesOrdered);
+        }
+        return order;
+    }
+
+
 }

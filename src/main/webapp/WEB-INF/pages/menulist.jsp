@@ -7,14 +7,20 @@
     <title>Online Market</title>
 </head>
 <body>
-<cut value= "${client}"/>
+
 <div class="container">
     <h3>Here you will find our menu</h3>
+    <form action="/addClient">
     Sort by
-   
+        <select name =  "sorter">
+        <option value = description> Description</option>
+        <option value = price> Price</option><br>
+        <input type="submit" value="Sort">
+        </select>
+    </form>>
 
 
-    <form action="/processOrder">
+    <form action="/viewCart">
         <table>
             <th colspan="2">Dish</th><th>Price</th>
             <c:forEach var="dish" items ="${menuList}">
