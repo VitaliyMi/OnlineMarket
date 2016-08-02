@@ -10,7 +10,7 @@
 
 <div class="container">
     <h3>Here you will find our menu</h3>
-    <form action="/addClient">
+    <form action="/showMenu">
     Sort by
         <select name =  "sorter">
         <option value = description> Description</option>

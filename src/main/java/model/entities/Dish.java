@@ -96,4 +96,23 @@ public class Dish implements Serializable{
     public String toString() {
         return "["+ this.dishName+"\t"+this.getPrice()+"<img src="+this.getUrl()+">]";
     }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        Dish d =(Dish)obj;
+        if (this.getName().equals(d.getName()))
+            if(this.getUrl().equals(d.getUrl()))
+                if (this.getPrice()==(d.getPrice()))
+        return true;
+
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return this.getUrl().length()+(int)price*3;
+    }
+
 }

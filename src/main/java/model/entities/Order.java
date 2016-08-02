@@ -1,15 +1,12 @@
 package model.entities;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by MSI on 20.07.2016.
  */
 public class Order {
-    private Map<Dish, Integer> orders= new HashMap<>();
+    private Map<Dish, Integer> dishes= new HashMap<>();
 
 
     private Client client;
@@ -22,30 +19,32 @@ public class Order {
     }
 
     public Order(Map<Dish, Integer> orders, Client client) {
-        this.orders = orders;
+        this.dishes = orders;
         this.client = client;
     }
 
 
-    public Map<Dish, Integer> getOrders() {
-        return orders;
+    public Map<Dish, Integer> getDishes() {
+        return dishes;
     }
 
 
     public void addDishAndAmountToOrderList(Dish dish, int amount)
     {
-        orders.put(dish, amount);
+        dishes.put(dish, amount);
     }
 
     public void addAllDishesToOrderList(Map<Dish,Integer> dishes)
     {
-        orders.putAll(dishes);
+        dishes.putAll(dishes);
     }
 
     public Client getClient()
     {
         return this.client;
     }
+
+
 
 }
 

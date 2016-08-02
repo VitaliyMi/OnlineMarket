@@ -1,3 +1,4 @@
+<%@ page import="model.entities.Order" %>
 <%--
   Created by IntelliJ IDEA.
   User: MSI
@@ -17,16 +18,7 @@
     <h3>Your order has been processed</h3>
     </select>
 
-      <table>
-        <th colspan="2">Dish</th><th>Price</th><th>Quantity</th>>
-        <tr>
-          <c:forEach var="order" items ="${orders}">
-        <tr><td> <c:out value="${order.client.name}"/></td>
-        <c:forEach var="dishes" items ="${order.orders}">
-        <td>Dish: ${dishes.key.name}, quantity: ${dishes.value}</td>
-        </c:forEach>
-        </c:forEach>
-      </table>
+    ${resultTable}
 
 
 

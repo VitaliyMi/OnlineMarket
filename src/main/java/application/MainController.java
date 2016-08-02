@@ -5,7 +5,6 @@ import model.comparators.ComparatorFactory;
 import model.entities.Client;
 import model.entities.Dish;
 import model.entities.Order;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +24,10 @@ public class MainController {
     @Autowired
     Service service;
 
+    @Autowired
+    ResultUtil resultUtil;
+
+
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView printWelcome() {
         ModelAndView mav = new ModelAndView("index");
@@ -33,7 +36,7 @@ public class MainController {
     }
 
 
-    @RequestMapping("/addClient")
+    @RequestMapping("/showMenu")
     public ModelAndView requestHandlingMethod(HttpServletRequest request, @ModelAttribute Client client) {
         String sorter = request.getParameter("sorter");
         Comparator<Dish> comparator = ComparatorFactory.buildComparator(sorter);
@@ -50,8 +53,6 @@ public class MainController {
     @RequestMapping(value = "/viewCart")
     public ModelAndView showCart(HttpServletRequest request,@ModelAttribute Client client) {
         Order order = getOrderInformation(request, client);
-        System.out.println(order.getClient());
-        System.out.println(order.getOrders());
         ModelAndView mav = new ModelAndView("cart");
         mav.addObject(order);
         request.getSession().setAttribute("order", order);
@@ -73,7 +74,8 @@ public class MainController {
     public ModelAndView showResult(HttpSession session, @ModelAttribute Client client)
     {
         ModelAndView mav =new ModelAndView("result");
-        mav.addObject("orders", orders);
+        String resultTable = resultUtil.getResultHTML(orders);
+        mav.addObject("resultTable", resultTable);
         return mav;
     }
 

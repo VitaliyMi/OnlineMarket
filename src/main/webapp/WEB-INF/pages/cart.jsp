@@ -15,18 +15,20 @@
   Did we get everything clear?
 <form action="prosesOrder">
   <table>
-    <c:forEach var="dish" items="${order.orders}">
+    <th>Dish</th>  <th>Image</th> <th>Quantity</th> <th>Total price</th>
+    <c:forEach var="dish" items="${order.dishes}">
      <tr>
        <td><c:out value="${dish.key.name}"/></td>
        <td><img src="<c:out value="${dish.key.url}"/>" height="200", width="250"> </td>
        <td><c:out value="${dish.value}"/> </td>
-       <td><c:out value="${dish.key.price*dish.value}"/>  </td>
+       <td>$ <c:out value="${dish.key.price*dish.value}"/>  </td>
      </tr>
     </c:forEach>
   </table>
     <input type="submit" value = "Prosess order"/>
-
     </form>
+  <form action="showMenu">
+  <input type="submit" value="Change order">
 
 </body>
 </html>

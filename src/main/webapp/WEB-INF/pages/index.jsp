@@ -9,7 +9,7 @@
 <div class="container">
     <h3>Hello, please introduce yourself!</h3>
     <h4>Are you ${client.name} again</h4>
-    <form:form action="/addClient" modelAttribute="client" method="post">
+    <form:form action="/showMenu" modelAttribute="client" method="post">
 
         Hi, my name is:<br>
         <form:input type="text" path="name" placeholder="Your name"/><br><br>
