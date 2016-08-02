@@ -63,7 +63,6 @@ public class MainController {
     public String prosesOrder(@ModelAttribute Client client, HttpServletRequest request)
     {
         Order order = (Order) request.getSession().getAttribute("order");
-        System.out.println(order.getClient().getName());
         orders.add(order);
         return "thanks";
 

@@ -22,7 +22,7 @@ public class Dish implements Serializable{
 
     public Dish()
     {
-     //   id=180;
+
     }
 
     private String dishName;
@@ -32,11 +32,6 @@ public class Dish implements Serializable{
     private String url;
 
     private List<Transaction> transactions = new ArrayList<Transaction>(0);
-
-    //   private float rating;
- //   @ManyToMany(mappedBy = "dishes")
- //@OneToMany(fetch = FetchType.LAZY, mappedBy = "dish", cascade = CascadeType.ALL)
-
 
 
     @Id
@@ -83,14 +78,6 @@ public class Dish implements Serializable{
     public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
     }
-
- /*   public float getRating() {
-        return rating;
-    }
-
-    public void setRating(float rating) {
-        this.rating = rating;
-    }*/
 
     @Override
     public String toString() {

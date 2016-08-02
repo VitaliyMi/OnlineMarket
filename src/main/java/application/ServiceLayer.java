@@ -17,41 +17,24 @@ import java.util.List;
 @Component("service")
 public class ServiceLayer implements Service {
 
-
- /*   private static AnnotationConfigApplicationContext ctx;
-    static
-    {
-        ctx = new AnnotationConfigApplicationContext();
-        ctx.register(AppConfig.class);
-        ctx.refresh();
-    }
-*/
- private DishesRepository repository;
+    private DishesRepository repository;
 
     @Autowired
     public ServiceLayer(DishesRepository repository)
     {
         this.repository=repository;
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
 
     public ServiceLayer()
     {
-        System.out.println("IN CONSTRUCTOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
     }
 
-    //    @Autowired
-//    DAOClass daoClass= (DAOClass) ctx.getBean("daoClass");= ctx.getBean(DishesRepository.class)
-
-
     private List<Dish> cachedMenu;
-//    private List<Dish> cachedMenu = daoClass.getMenu();
-
-
 
     public List<Dish> getMenu()
     {
-        cachedMenu=(List<Dish>) repository.findAll();
+        cachedMenu = repository.findAll();
         return cachedMenu;
     }
 
@@ -67,14 +50,13 @@ public class ServiceLayer implements Service {
         Dish d = new Dish("Hleb");
         d.setPrice(12);
         d.setUrl("url");
-    //    repository.save(d);
         System.out.println("Supposed to be saved");
-        cachedMenu= (List<Dish>) repository.findAll();
+        cachedMenu= repository.findAll();
     }
 
     public Dish findByName(String name)
     {
-       Dish dish = (Dish)repository.findByNameIgnoreCase(name);
+       Dish dish = repository.findByNameIgnoreCase(name);
         return dish;
     }
 }

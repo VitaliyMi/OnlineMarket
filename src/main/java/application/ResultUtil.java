@@ -1,16 +1,12 @@
 package application;
 
-import application.Service;
 import model.entities.Dish;
 import model.entities.Order;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by MSI on 01.08.2016.
@@ -57,7 +53,6 @@ public class ResultUtil {
             }
             totalSum+=userTotalSum;
             resultString.append("<td> "+userTotalSum+"$</td></tr>");
-
 
         }
 

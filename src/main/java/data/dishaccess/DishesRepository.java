@@ -11,7 +11,6 @@ import java.util.List;
  */
 
 public interface DishesRepository  extends Repository<Dish, Integer> {
-   // Dish findByName(String name);
 
    List<Dish> findAll();
 
