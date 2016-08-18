@@ -6,6 +6,7 @@ import model.entities.Client;
 import model.entities.Dish;
 import model.entities.Order;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,6 +18,7 @@ import java.util.*;
 @Controller
 @RequestMapping("/")
 @SessionAttributes(types = Client.class)
+@Component("mainController")
 public class MainController {
 
     private static List<Order> orders = new ArrayList<>();

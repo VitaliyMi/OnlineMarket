@@ -14,14 +14,40 @@ import java.util.List;
 @Component("resultUtil")
 public class ResultUtil {
 
+    private StringBuilder resultString = new StringBuilder();
+    private int userTotalSum;
+    private List<String> dishNames;
+    int totalSum=0;
+    int[] numberOfDishesOrdered;
+    int totalDishesOrdered=0;
+
+
     @Autowired
     Service service;
+
     public  String getResultHTML(List<Order> orders)
     {
-        int totalSum=0;
-        StringBuilder resultString = new StringBuilder();
-        List<String> dishNames =getDishesNames();
-        int[] numberOfDishesOrdered= new int[getDishesNames().size()];
+        resetData();
+        addHeadersToResultTable();
+        fillTableWithData(orders);
+        addTableSummary();
+        return getResultTable();
+    }
+
+    private List<String> getDishesNames()
+    {
+        List<Dish> menu =service.getMenu();
+        List<String> dishnames= new ArrayList<>();
+        for(Dish d: menu)
+        {
+            dishnames.add(d.getName());
+        }
+        return dishnames;
+    }
+
+
+    private void addHeadersToResultTable()
+    {
 
         resultString.append("<table><th>User</th>");
 
@@ -30,11 +56,15 @@ public class ResultUtil {
             resultString.append("<th>"+dishNames.get(i)+"</th>");
         }
         resultString.append("<th>Sum</th>");
-        int userTotalSum;
 
+    }
+
+
+    private void fillTableWithData(List<Order> orders)
+    {
         for(Order order: orders)
         {
-           userTotalSum=0;
+            userTotalSum=0;
             resultString.append("<tr><td>"+order.getClient().getName()+"</td>");
             for(int i=0; i<dishNames.size();i++)
             {
@@ -55,8 +85,10 @@ public class ResultUtil {
             resultString.append("<td> "+userTotalSum+"$</td></tr>");
 
         }
+    }
 
-        int totalDishesOrdered=0;
+    private void addTableSummary()
+    {
         resultString.append("<tr><td>Total</td>");
         for(int i=0; i<numberOfDishesOrdered.length;i++)
         {
@@ -65,17 +97,23 @@ public class ResultUtil {
         }
 
         resultString.append("<td>"+totalDishesOrdered+" / "+totalSum+"$</td></tr></table>");
-        return resultString.toString();
     }
 
-    public  List<String> getDishesNames()
+    private void resetData()
     {
-        List<Dish> menu =service.getMenu();
-        List<String> dishnames= new ArrayList<>();
-        for(Dish d: menu)
-        {
-            dishnames.add(d.getName());
-        }
-        return dishnames;
+        resultString=new StringBuilder();
+        dishNames = getDishesNames();
+        numberOfDishesOrdered = new int[getDishesNames().size()];
+        userTotalSum = 0;
+        totalSum=0;
+        totalDishesOrdered=0;
+    }
+
+
+
+
+    private String getResultTable()
+    {
+       return resultString.toString();
     }
 }

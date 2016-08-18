@@ -13,14 +13,13 @@ repositories {
 
 dependencies {
 
-    testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile "org.mockito:mockito-core:1.9.5"
     testCompile "org.springframework:spring-test:3.2.3.RELEASE"
     testCompile "com.fasterxml.jackson.core:jackson-core:2.2.1"
     testCompile "com.fasterxml.jackson.core:jackson-databind:2.2.1"
 
-
- //   compile group: 'org.springframework', name: 'spring-test', version: '4.3.0.RELEASE'
+    compile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.springframework', name: 'spring-test', version: '4.2.6.RELEASE'
     compile 'org.hibernate:hibernate-core:5.1.0.Final'
     compile 'org.springframework:spring-webmvc'
     compile 'org.hibernate:hibernate-entitymanager:5.1.0.Final'
@@ -31,13 +30,6 @@ dependencies {
     compile "org.liquibase:liquibase-core:3.4.2"
     compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.1.1'
 
-
-//    compile 'org.springframework:spring-core:4.2.5.RELEASE'
-//    compile 'org.springframework:spring-context:4.2.5.RELEASE'
-//    compile "org.springframework.boot:spring-boot-starter-web:1.0.1.RELEASE"
-//    compile "org.springframework.boot:spring-boot-starter-jdbc:1.0.1.RELEASE"
-//    compile "org.springframework.boot:spring-boot-starter-actuator:1.0.1.RELEASE"
-//    compile "org.springframework.data:spring-data-jpa:1.10.1.RELEASE"
 }
 
 
