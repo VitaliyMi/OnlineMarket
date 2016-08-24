@@ -1,4 +1,4 @@
-package model.entities;
+package application.model.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -30,7 +30,7 @@ public class Client implements Serializable{
 
 
 //    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  //          @JoinTable(name = "transactions", joinColumns = {@JoinColumn(name = "user_id")},
+    //          @JoinTable(name = "transactions", joinColumns = {@JoinColumn(name = "user_id")},
     //        inverseJoinColumns = {@JoinColumn(name = "dish_id")})
 
 

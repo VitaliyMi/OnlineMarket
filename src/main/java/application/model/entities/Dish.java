@@ -1,4 +1,4 @@
-package model.entities;
+package application.model.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -91,7 +91,7 @@ public class Dish implements Serializable{
         if (this.getName().equals(d.getName()))
             if(this.getUrl().equals(d.getUrl()))
                 if (this.getPrice()==(d.getPrice()))
-        return true;
+                    return true;
 
 
         return false;

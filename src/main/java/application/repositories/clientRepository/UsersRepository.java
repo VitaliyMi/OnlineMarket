@@ -1,6 +1,6 @@
-package data.clientaccess;
+package application.repositories.clientRepository;
 
-import model.entities.Client;
+import application.model.entities.Client;
 
 /**
  * Created by MSI on 05.06.2016.

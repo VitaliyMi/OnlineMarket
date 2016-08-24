@@ -1,6 +1,6 @@
-package data.dishaccess;
+package application.repositories.dishRepository;
 
-import model.entities.Dish;
+import application.model.entities.Dish;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.CriteriaBuilder;

@@ -1,4 +1,4 @@
-package data.clientaccess;
+package application.repositories.clientRepository;
 
 /**
  * Created by MSI on 05.06.2016.

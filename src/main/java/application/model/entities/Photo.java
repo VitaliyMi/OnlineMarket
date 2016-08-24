@@ -1,9 +1,10 @@
-package model.entities;
+package application.model.entities;
 
 /**
  * Created by MSI on 30.04.2016.
  */
 import javax.persistence.*;
+import java.util.Arrays;
 
 @Table(name="Photos")
 public class Photo {
@@ -42,5 +43,27 @@ public class Photo {
 
     public void setBody(byte[] body) {
         this.body = body;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Photo)) return false;
+
+        Photo photo = (Photo) o;
+
+        if (id != photo.id) return false;
+        if (!Arrays.equals(body, photo.body)) return false;
+        if (!name.equals(photo.name)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + name.hashCode();
+        result = 31 * result + Arrays.hashCode(body);
+        return result;
     }
 }
