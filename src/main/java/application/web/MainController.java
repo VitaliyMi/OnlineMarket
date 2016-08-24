@@ -4,7 +4,6 @@ package application.web; /**
 
 
 import application.services.DishService;
-import application.ResultUtil;
 import application.services.Service;
 import application.model.entities.Client;
 import application.model.entities.Dish;
@@ -30,9 +29,7 @@ public class MainController {
 
     @Autowired
     DishService service;
-
-    @Autowired
-    ResultUtil resultUtil;
+    
 
     @RequestMapping("/")
     public ModelAndView printWelcome() {
