@@ -29,7 +29,7 @@ public class MainController {
 
     @Autowired
     DishService service;
-    
+
 
     @RequestMapping("/")
     public ModelAndView printWelcome() {
