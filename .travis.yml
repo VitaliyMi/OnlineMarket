@@ -9,7 +9,7 @@ addons:
   sonarqube: true
 
 env:
-Qwerty12345=55c12d536b53356e424d8da1d7fc84c0166a44c2
+#Qwerty12345=55c12d536b53356e424d8da1d7fc84c0166a44c2
 language: java
 script: sonar -Dsonar.host.url=https://sonarqube.com -Dsonar.login=Qwert
 
