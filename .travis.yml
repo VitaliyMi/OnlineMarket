@@ -15,4 +15,4 @@ script: sonar -Dsonar.host.url=https://sonarqube.com -Dsonar.login=Qwert
 
 script:
   # other script steps might be done before running the actual SonarQube analysis
-  - sonar-scanner -Dsonar.login=Qwerty12345
+  #- sonar-scanner -Dsonar.login=Qwerty12345
