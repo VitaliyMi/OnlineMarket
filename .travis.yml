@@ -11,5 +11,5 @@ env:
   global:
     - secure: 55c12d536b53356e424d8da1d7fc84c0166a44c2
 script:
-  # other script steps might be done before running the actual SonarQube analysis
   - sonar-scanner -Dsonar.login=55c12d536b53356e424d8da1d7fc84c0166a44c2
+  # other script steps might be done before running the actual SonarQube analysis
