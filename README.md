@@ -1,10 +1,10 @@
-# OnlineMarket
+# OnlineMarket  [![Build Status](https://travis-ci.org/VitaliyMi/OnlineMarket.svg?branch=master)](https://travis-ci.org/VitaliyMi/OnlineMarket)
 
-This web application lets you order dishes, view cart and watch all orders summary.
+This application.web application lets you order dishes, view cart and watch all orders summary.
 
 Next technologies were used to deploy this project:
-- Spring MVC for web-pages and controller
-- Spring IoC for service layer
+- Spring MVC for application.web-pages and controller
+- Spring IoC for application.services layer
 - Spring data + hibernate for persistence layer
 - Gradle for project binaries build
 - Spring boot with embedded tomcat as container
