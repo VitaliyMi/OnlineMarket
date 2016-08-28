@@ -2,13 +2,21 @@ apply plugin: 'java'
 apply plugin: 'idea'
 
 
+sonarqube {
+    properties {
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.projectName", "OnlineMarket"
+        property "sonar.projectKey", "OnlineMarket"
+    }
+}
+
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 version = '1.0'
 
 repositories {
-    mavenCentral()
+    mavenCentral()OnlineMarke
     maven { url "https://repository.jboss.org/nexus/content/repositories/releases" }
 }
 
