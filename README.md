@@ -1,5 +1,4 @@
-# OnlineMarket 
-
+# OnlineMarket   [![Build Status](https://travis-ci.org/VitaliyMi/OnlineMarket.svg?branch=master)](https://travis-ci.org/VitaliyMi/OnlineMarket)
 This web application lets you order dishes, view cart and watch all orders summary.
 
 Next technologies were used to deploy this project:
