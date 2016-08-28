@@ -1,4 +1,4 @@
-# OnlineMarket https://travis-ci.org/VitaliyMi/OnlineMarket.svg?branch=master
+# OnlineMarket 
 
 This web application lets you order dishes, view cart and watch all orders summary.
 
