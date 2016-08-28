@@ -1,11 +1,7 @@
-<<<<<<< HEAD
+
 # OnlineMarket  [![Build Status](https://travis-ci.org/VitaliyMi/OnlineMarket.svg?branch=master)](https://travis-ci.org/VitaliyMi/OnlineMarket)
 
 This application.web application lets you order dishes, view cart and watch all orders summary.
-=======
-# OnlineMarket   [![Build Status](https://travis-ci.org/VitaliyMi/OnlineMarket.svg?branch=master)](https://travis-ci.org/VitaliyMi/OnlineMarket)
-This web application lets you order dishes, view cart and watch all orders summary.
->>>>>>> 988a3b9c8bb02a7149fc80d7e4c8a499c6cb5aad
 
 Next technologies were used to deploy this project:
 - Spring MVC for application.web-pages and controller
