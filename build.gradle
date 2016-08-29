@@ -1,11 +1,17 @@
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'jacoco'
+apply plugin: "org.sonarqube"
 
-sonarqube {properties {
+sonarqube {
+    properties {
         property "sonar.sourceEncoding", "UTF-8"
         property "sonar.projectName", "OnlineMarket"
         property "sonar.projectKey", "OnlineMarket"
+        property "sonar.host.url", "https://sonarqube.com"
+        property "sonar.jdbc.url",
+                "jdbc:h2:tcp://<IP_ADDRESS>:<PORT>/sonar"
+        property "sonar.jdbc.driverClassName", "org.h2.Driver"
     }
 }
 
@@ -75,5 +81,3 @@ clean << {
 
 apply plugin: 'org.liquibase.gradle'
 apply plugin: 'spring-boot'
-apply plugin: "org.sonarqube"
-apply plugin: "com.palantir.jacoco-coverage"
