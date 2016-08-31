@@ -45,6 +45,7 @@ branches:
 before_script:
   - ./gradlew clean
 
+
 script:
   - ./gradlew build
   - ./gradlew sonarqube -Dsonar.host.url=https://sonarqube.com -Dsonar.login=55c12d536b53356e424d8da1d7fc84c0166a44c2

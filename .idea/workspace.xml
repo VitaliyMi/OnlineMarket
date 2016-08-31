@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8e29159-b409-41bc-9572-01013e470ad8" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Main\Programming\Java\Projects\OnlineMarket\.idea\libraries\Gradle__junit_junit_4_11.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/application/model/entities/Client.java" afterPath="$PROJECT_DIR$/src/main/java/application/model/entities/Client.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/application/model/entities/Dish.java" afterPath="$PROJECT_DIR$/src/main/java/application/model/entities/Dish.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/application/services/DishService.java" afterPath="$PROJECT_DIR$/src/main/java/application/services/DishService.java" />
-      <change type="MODIFICATION" beforePath="C:\Main\Programming\Java\Projects\OnlineMarket\src\main\java\application\repositories\dishrepository\DishSpecifications.java" afterPath="$PROJECT_DIR$/src/main/java/application/repositories/dishrepository/DishSpecifications.java" />
-      <change type="MODIFICATION" beforePath="C:\Main\Programming\Java\Projects\OnlineMarket\src\main\java\application\repositories\dishrepository\DishesRepository.java" afterPath="$PROJECT_DIR$/src/main/java/application/repositories/dishrepository/DishesRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/application/web/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/application/web/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OnlineMarket.iml" afterPath="$PROJECT_DIR$/OnlineMarket.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/application/model/entities/Order.java" afterPath="$PROJECT_DIR$/src/main/java/application/model/entities/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/application/model/entities/Photo.java" afterPath="$PROJECT_DIR$/src/main/java/application/model/entities/Photo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/application/Start.java" afterPath="$PROJECT_DIR$/src/main/java/application/Start.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/application/model/entities/Transaction.java" afterPath="$PROJECT_DIR$/src/main/java/application/model/entities/Transaction.java" />
-      <change type="MODIFICATION" beforePath="C:\Main\Programming\Java\Projects\OnlineMarket\src\main\java\application\repositories\clientrepository\UserSpecifications.java" afterPath="$PROJECT_DIR$/src/main/java/application/repositories/clientrepository/UserSpecifications.java" />
-      <change type="MODIFICATION" beforePath="C:\Main\Programming\Java\Projects\OnlineMarket\src\main\java\application\repositories\clientrepository\UsersRepository.java" afterPath="$PROJECT_DIR$/src/main/java/application/repositories/clientrepository/UsersRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/log4j2-spring.xml" afterPath="$PROJECT_DIR$/src/main/resources/log4j2-spring.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="OnlineMarket.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -117,21 +99,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="567" max-vertical-offset="1003">
-              <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.5321101" vertical-offset="567" max-vertical-offset="1020">
+              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="travis.sh" pinned="false" current-in-tab="true">
+      <file leaf-file-name="travis.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/travis.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5571775" vertical-offset="1204" max-vertical-offset="1870">
-              <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+            <state vertical-scroll-proportion="-10.32" vertical-offset="1204" max-vertical-offset="1870">
+              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -738,9 +720,9 @@
         <option value="$PROJECT_DIR$/src/main/java/application/services/DishService.java" />
         <option value="$PROJECT_DIR$/src/main/java/application/web/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j2-spring.xml" />
-        <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/travis.sh" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
       </list>
     </option>
   </component>
@@ -1273,12 +1255,12 @@
       <workItem from="1472250317233" duration="3466000" />
       <workItem from="1472324196528" duration="1678000" />
       <workItem from="1472398453559" duration="19907000" />
-      <workItem from="1472608078453" duration="3728000" />
+      <workItem from="1472608078453" duration="3735000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="213886000" />
+    <option name="totallyTimeSpent" value="213893000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1301,7 +1283,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1932" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1760,14 +1742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="567" max-vertical-offset="1003">
-          <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26984128" vertical-offset="0" max-vertical-offset="901">
@@ -1778,8 +1752,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/travis.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5571775" vertical-offset="1204" max-vertical-offset="1870">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+        <state vertical-scroll-proportion="-10.32" vertical-offset="1204" max-vertical-offset="1870">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5321101" vertical-offset="567" max-vertical-offset="1020">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
         </state>
       </provider>
