@@ -1,4 +1,4 @@
-package application.repositories.clientRepository;
+package application.repositories.clientrepository;
 
 /**
  * Created by MSI on 05.06.2016.

@@ -1,6 +1,39 @@
 language: java
+sudo: false
+install: true
+script: ./travis.sh
+
 jdk:
   - oraclejdk8
+
+env:
+  - TARGET=CI
+  - TARGET=WEB
+
+matrix:
+  fast_finish: true
+
+cache:
+  directories:
+    - $HOME/.m2/repository
+    - $HOME/.sonar
+    - server/sonar-web/node
+    - server/sonar-web/node_modules
+    - $HOME/jvm
+    - $HOME/phantomjs
+
+
+before_cache:
+  # remove all the artifacts (JAR, ZIP) that are installed in local repo because of mvn deploy
+  - rm -rf $HOME/.m2/repository/org/sonarsource/sonarqube
+  - find $HOME/.m2 -name resolver-status.properties -exec rm {} \;
+
+notifications:
+  email: false
+  webhooks:
+    - secure: "55c12d536b53356e424d8da1d7fc84c0166a44c2"
+  on_start: always
+
 
 before_install:
   - chmod +x gradlew

@@ -4,7 +4,6 @@ package application.web; /**
 
 
 import application.services.DishService;
-import application.services.Service;
 import application.model.entities.Client;
 import application.model.entities.Dish;
 import application.model.entities.Order;
@@ -47,11 +46,10 @@ public class MainController {
     @RequestMapping("/showMenu")
     public ModelAndView requestHandlingMethod(HttpServletRequest request, @ModelAttribute Client client) {
         String sorter = request.getParameter("sorter");
-        List<Dish> menu = null;
+        List<Dish> menu;
         if (sorter!= null)
         {
             menu= service.performSortedSearch(sorter);
-            System.out.println("MENUUUUUUUUUUUUUUUUU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
         else
         {
@@ -85,7 +83,6 @@ public class MainController {
     @RequestMapping(value = "/showResult")
     public ModelAndView showResult(HttpSession session, @ModelAttribute Client client) {
         ModelAndView mav = new ModelAndView("result");
-     //   String resultTable = resultUtil.getResultHTML(orders);
         mav.addObject("service", service);
         mav.addObject("orders", orders);
         return mav;
@@ -97,7 +94,6 @@ public class MainController {
 
         for (String s : orderedDishesNames) {
             Dish dish = service.findByName(s);
-            System.out.println(dish.getName() + "\t " + dish.getPrice());
             int piecesOrdered = Integer.parseInt(requestWithOrderInformation.getParameter("numberof" + s));
             order.addDishAndAmountToOrderList(dish, piecesOrdered);
         }

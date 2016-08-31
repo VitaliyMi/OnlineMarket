@@ -1,4 +1,4 @@
-package application.repositories.dishRepository;
+package application.repositories.dishrepository;
 
 import application.model.entities.Dish;
 import org.springframework.data.repository.Repository;

@@ -2,6 +2,7 @@ package application.model.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,17 +14,7 @@ import java.util.List;
 @Table(name = "dishes")
 public class Dish implements Serializable{
 
-
     private long id;
-
-    public Dish(String dishName) {
-        this.dishName = dishName;
-    }
-
-    public Dish()
-    {
-
-    }
 
     private String dishName;
 
@@ -31,7 +22,17 @@ public class Dish implements Serializable{
 
     private String url;
 
-    private List<Transaction> transactions = new ArrayList<Transaction>(0);
+    public Dish(String dishName) {
+        this.dishName = dishName;
+    }
+
+    private List<Transaction> transactions = new ArrayList<>();
+
+
+    public Dish()
+    {
+        //explicit public constructor;
+    }
 
 
     @Id
@@ -87,13 +88,14 @@ public class Dish implements Serializable{
 
     @Override
     public boolean equals(Object obj) {
-        Dish d =(Dish)obj;
-        if (this.getName().equals(d.getName()))
-            if(this.getUrl().equals(d.getUrl()))
-                if (this.getPrice()==(d.getPrice()))
-                    return true;
+        if(obj!=null && obj instanceof Dish) {
+            Dish d = (Dish) obj;
+            if (this.getName().equals(d.getName()))
+                if (this.getUrl().equals(d.getUrl()))
+                    if(BigDecimal.valueOf(this.getPrice())==BigDecimal.valueOf(d.getPrice()))
+                        return true;
 
-
+        }
         return false;
     }
 

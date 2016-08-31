@@ -3,10 +3,11 @@ package application.model.entities;
 /**
  * Created by MSI on 30.04.2016.
  */
+
 import javax.persistence.*;
 import java.util.Arrays;
 
-@Table(name="Photos")
+@Table(name = "Photos")
 public class Photo {
     @Id
     @GeneratedValue
@@ -14,7 +15,9 @@ public class Photo {
     private String name;
     private byte[] body;
 
-    public Photo() {}
+    public Photo() {
+        //explicit public constructor;
+    }
 
     public Photo(String name, byte[] body) {
         this.name = name;
@@ -48,13 +51,17 @@ public class Photo {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Photo)) return false;
+        if (!(o instanceof Photo))
+            return false;
 
         Photo photo = (Photo) o;
 
-        if (id != photo.id) return false;
-        if (!Arrays.equals(body, photo.body)) return false;
-        if (!name.equals(photo.name)) return false;
+        if (id != photo.id)
+            return false;
+        if (!Arrays.equals(body, photo.body))
+            return false;
+        if (!name.equals(photo.name))
+            return false;
 
         return true;
     }

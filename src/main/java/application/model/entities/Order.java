@@ -13,23 +13,18 @@ public class Order {
 
     private Client client;
 
-    public Order()
-    {
-
+    public Order() {
+        //explicit public constructor;
     }
-
-
 
     public Order(Client client) {
         this.client = client;
     }
 
-
     public Order(Map<Dish, Integer> orders, Client client) {
         this.dishes = orders;
         this.client = client;
     }
-
 
 
     public int getId() {
@@ -56,13 +51,14 @@ public class Order {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Order)) return false;
-
+        if (!(o instanceof Order))
+            return false;
         Order order = (Order) o;
+        if (!client.equals(order.client))
+            return false;
+        if (!dishes.equals(order.dishes))
+            return false;
 
-        if (!client.equals(order.client)) return false;
-        if (!dishes.equals(order.dishes)) return false;
         return true;
     }
 

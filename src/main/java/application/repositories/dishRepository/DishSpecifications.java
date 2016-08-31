@@ -1,4 +1,4 @@
-package application.repositories.dishRepository;
+package application.repositories.dishrepository;
 
 import application.model.entities.Dish;
 import org.springframework.data.jpa.domain.Specification;
@@ -13,6 +13,11 @@ import javax.persistence.criteria.Root;
  */
 
 public class DishSpecifications{
+
+    private DishSpecifications() {
+        //private constructor to hide implicit public one
+    }
+
     public static class DishPriceLessThanSpecification implements Specification<Dish>
     {
         int price;

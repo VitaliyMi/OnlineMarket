@@ -1,4 +1,4 @@
-package application.repositories.clientRepository;
+package application.repositories.clientrepository;
 
 import application.model.entities.Client;
 

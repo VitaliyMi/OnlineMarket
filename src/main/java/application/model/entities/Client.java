@@ -12,8 +12,16 @@ import java.util.List;
 @Table(name = "users")
 public class Client implements Serializable{
 
+    private long id;
+
+    private String name;
+
+    private List<Transaction> transactions= new ArrayList<>();
+
+
     public  Client()
     {
+        //explicit public constructor;
     }
 
     public Client(String name)
@@ -21,19 +29,6 @@ public class Client implements Serializable{
         this.name = name;
 
     }
-
-    private long id;
-
-    private String name;
-
-    private List<Transaction> transactions= new ArrayList<Transaction>(0);
-
-
-//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    //          @JoinTable(name = "transactions", joinColumns = {@JoinColumn(name = "user_id")},
-    //        inverseJoinColumns = {@JoinColumn(name = "dish_id")})
-
-
 
 
     public void setTransactions(List<Transaction> transactions) {

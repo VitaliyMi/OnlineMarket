@@ -1,10 +1,11 @@
 package application.services;
 
 import application.model.entities.Dish;
-import application.repositories.dishRepository.DishesRepository;
+import application.repositories.dishrepository.DishesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,18 +16,14 @@ public class DishService implements Service {
 
     private DishesRepository repository;
 
-    public DishService()
-    {
-
-    }
+    private List<Dish> cachedMenu;
 
     @Autowired
     public DishService(DishesRepository repository) {
         this.repository = repository;
     }
 
-    private List<Dish> cachedMenu;
-
+    @Override
     public List<Dish> getMenu() {
         cachedMenu = repository.findAll();
         return cachedMenu;
@@ -34,20 +31,21 @@ public class DishService implements Service {
 
     @Override
     public List<Dish> getSortedByPriceMenu() {
-        return null;
+        return new ArrayList<>();
     }
 
+    @Override
     public void addDish() {
         Dish d = new Dish("Hleb");
         d.setPrice(12);
         d.setUrl("url");
-        System.out.println("Supposed to be saved");
         cachedMenu = repository.findAll();
     }
 
+    @Override
     public Dish findByName(String name) {
-        Dish dish = repository.findByNameIgnoreCase(name);
-        return dish;
+        return repository.findByNameIgnoreCase(name);
+
     }
 
     public List<Dish> performSortedSearch(String sorter)
@@ -60,7 +58,7 @@ public class DishService implements Service {
         {
             return repository.findAllByOrderByNameAsc();
         }
-        return null;
+        return new ArrayList<>();
     }
 
 }
