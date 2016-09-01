@@ -22,12 +22,6 @@ cache:
     - $HOME/jvm
     - $HOME/phantomjs
 
-
-before_cache:
-  # remove all the artifacts (JAR, ZIP) that are installed in local repo because of mvn deploy
-  - rm -rf $HOME/.m2/repository/org/sonarsource/sonarqube
-  - find $HOME/.m2 -name resolver-status.properties -exec rm {} \;
-
 notifications:
   email: false
   webhooks:
@@ -41,9 +35,6 @@ before_install:
 branches:
   only:
     - master
-
-before_script:
-  - ./gradlew clean
 
 
 script:
