@@ -33,12 +33,7 @@ notifications:
   webhooks:
     - secure: "55c12d536b53356e424d8da1d7fc84c0166a44c2"
   on_start: always
-
-
-branches:
-  only:
-    - master
-
+  
 
 script:
   - ./gradlew build
