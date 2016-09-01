@@ -6,6 +6,8 @@ script: ./travis.sh
 jdk:
   - oraclejdk8
 
+-before_install:
+ -  - chmod +x gradlew
 env:
   - TARGET=CI
   - TARGET=WEB
