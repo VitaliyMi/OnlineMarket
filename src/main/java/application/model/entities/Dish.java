@@ -87,16 +87,19 @@ public class Dish implements Serializable{
 
 
     @Override
-    public boolean equals(Object obj) {
-        if(obj!=null && obj instanceof Dish) {
-            Dish d = (Dish) obj;
-            if (this.getName().equals(d.getName()))
-                if (this.getUrl().equals(d.getUrl()))
-                    if(BigDecimal.valueOf(this.getPrice())==BigDecimal.valueOf(d.getPrice()))
-                        return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Dish)) return false;
 
-        }
-        return false;
+        Dish dish = (Dish) o;
+
+        if (id == dish.id&&
+                Float.compare(dish.price, price) == 0&&
+                    dishName.equals(dish.dishName)&&
+                            url.equals(dish.url))
+            return true;
+        else
+            return false;
     }
 
     @Override
