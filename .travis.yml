@@ -1,0 +1,43 @@
+language: java
+sudo: false
+install: true
+script: ./travis.sh
+
+jdk:
+  - oraclejdk8
+
+before_install:
+  - chmod +x gradlew
+
+before_script:
+  - ./gradlew clean
+
+env:
+  - TARGET=CI
+  - TARGET=WEB
+
+matrix:
+  fast_finish: true
+
+cache:
+  directories:
+    - $HOME/.m2/repository
+    - $HOME/.sonar
+    - server/sonar-web/node
+    - server/sonar-web/node_modules
+    - $HOME/jvm
+    - $HOME/phantomjs
+
+notifications:
+  email: false
+  webhooks:
+    - secure: "55c12d536b53356e424d8da1d7fc84c0166a44c2"
+  on_start: always
+
+
+script:
+  - ./gradlew build
+  - ./gradlew sonarqube -Dsonar.host.url=https://sonarqube.com -Dsonar.login=55c12d536b53356e424d8da1d7fc84c0166a44c2
+  #script:
+  #- sonar-scanner -Dsonar.login=
+  # other script steps might be done before running the actual SonarQube analysis
