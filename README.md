@@ -1,5 +1,5 @@
 
-# OnlineMarket  [![Build Status](https://travis-ci.org/VitaliyMi/OnlineMarket.svg?branch=master)](https://travis-ci.org/VitaliyMi/OnlineMarket)
+# OnlineMarket  [![Build Status](https://travis-ci.org/VitaliyMi/OnlineMarket.svg?branch=master)](https://travis-ci.org/VitaliyMi/OnlineMarket) [![Quality Gate](http://nemo.sonarqube.org/api/badges/gate?key=OnlineMarket)](http://nemo.sonarqube.org/dashboard/index/OnlineMarket)
 
 This application.web application lets you order dishes, view cart and watch all orders summary.
 
