@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * Created by MSI on 20.07.2016.
  */
-public class Order implements Serializable{
+public class Order implements Serializable {
     private int id;
 
     private Map<Dish, Integer> dishes = new HashMap<>();

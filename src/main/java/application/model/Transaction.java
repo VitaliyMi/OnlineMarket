@@ -1,17 +1,12 @@
 package application.model;
 
-/**
- * Created by MSI on 21.08.2016.
- */
-
-import javax.persistence.Entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
 
 @Entity
 @Table(name = "transactions")
-public class Transaction implements Serializable{
+public class Transaction implements Serializable {
 
     @Id
     @GeneratedValue

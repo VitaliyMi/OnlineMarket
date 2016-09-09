@@ -1,10 +1,5 @@
-<%@ page import="application.model.Order" %>
-<%@ page import="application.model.Dish" %>
-<%@ page import="application.services.DishService" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
 <%--
-<%@ page import="application.model.Order" %>
+<%@ page import="application.model.OrderProcessingResultDTO" %>
   Created by IntelliJ IDEA.
   User: MSI
   Date: 20.07.2016
@@ -12,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
   <html>
@@ -22,61 +18,43 @@
   <div class="container">
     <h3>Your order has been processed</h3>
 
+
     <table>
-    <th>User</th>
-      <%
-        List<Order> orders = (List<Order>)request.getAttribute("orders");
-        DishService service = (DishService) request.getAttribute("service");
-        List<Dish> dishes = service.getMenu();
-        List<String> dishNames = new ArrayList<>();
-        int totalSum=0;
-        int userTotalSum=0;
-        int totalDishesOrdered=0;
-        int []numberOfDishesOrdered;
+      <th>User</th>
+      <c:forEach var = "dishnames" items="${totalOrdersDTO.totalNumberOfEachDishOrdered}">
+        <th>${dishnames.key}</th>
+      </c:forEach>
+      <th></th>
+      <tr>
+        <c:forEach var = "order" items="${totalOrdersDTO.orderList}">
+        <td>${order.client.name}</td>
 
-        for(Dish d: dishes)
-        {
-      %>
-      <th>
-      <%=d.getName()%>
-      <%dishNames.add(d.getName());%>
+          <c:forEach var = "dishnames" items="${totalOrdersDTO.totalNumberOfEachDishOrdered}">
+            <c:set var="contains" value="false"/>
+            <c:forEach var = "dish" items="${order.dishes}">
+              <c:if test="${dishnames.key eq dish.key.name}">
+                <c:set var="contains" value="true" />
+                <c:set var ="value"  value="${dish.value}"/>
+              </c:if>
 
-      </th>
-      <%}
-        numberOfDishesOrdered = new int [dishNames.size()];
-        for(Order order: orders)
-        {
-          %><tr>
-                <td><%=order.getClient().getName()%></td>
-          <%for(int i=0; i<dishNames.size();i++)
-          {
+            </c:forEach>
+            <c:choose>
+              <c:when test="${contains==true}" >
+                <td>${value}</td>
+              </c:when>
+              <c:otherwise>
+                <td>0</td>
+              </c:otherwise>
+            </c:choose>
+          </c:forEach>
+               <td>$${totalOrdersDTO.totalClientOrderPrice[order.client.name]}</td></tr>
+      </c:forEach>
+      <tr><td>Total:</td>
 
-            if(!order.getDishes().containsKey(service.findByName(dishNames.get(i))))
-            {
-              %><td>0</td><%
-            }
-            else
-
-            {
-              Dish currentDish = service.findByName(dishNames.get(i));%>
-              <td><%=order.getDishes().get(currentDish)%></td>
-             <% userTotalSum+=currentDish.getPrice()*order.getDishes().get(currentDish);
-              numberOfDishesOrdered[i]+=order.getDishes().get(currentDish);
-            }
-          }
-          totalSum+=userTotalSum;%>
-          <td><%=userTotalSum%></td></tr>
-        <%
-          }
-        %>
-      <tr><td>Total</td>
-      <%
-        for(int j=0; j<numberOfDishesOrdered.length;j++)
-        {
-      %><td><%=numberOfDishesOrdered[j]%></td>
-      <%totalDishesOrdered+=numberOfDishesOrdered[j];
-      }
-      %><td><%=totalDishesOrdered+" / "+totalSum%></td></tr>
+        <c:forEach var = "dishes" items="${totalOrdersDTO.totalNumberOfEachDishOrdered}">
+               <td>${dishes.value}</td>
+      </c:forEach>
+      <td>${totalOrdersDTO.totalDishesOrdered} / $${totalOrdersDTO.totalSum}</td></tr>
     </table>
       <input type="submit" value="View cart">
   </div>

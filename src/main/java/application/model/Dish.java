@@ -5,9 +5,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by MSI on 30.04.2016.
- */
 
 @Entity
 @Table(name = "dishes")
@@ -85,7 +82,6 @@ public class Dish implements Serializable{
     public String toString() {
         return "["+ this.dishName+"\t"+this.getPrice()+"<img src="+this.getUrl()+">]";
     }
-
 
     @Override
     public boolean equals(Object o) {

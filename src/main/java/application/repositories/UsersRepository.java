@@ -4,10 +4,9 @@ import application.model.Client;
 import org.springframework.data.repository.Repository;
 
 /**
- * Created by MSI on 05.06.2016.
+ *This is a mock interface because it is under design yet
  */
 
-public interface UsersRepository extends Repository<Client, Integer>
- {
+public interface UsersRepository extends Repository<Client, Integer> {
 
- }
+}
