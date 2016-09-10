@@ -12,17 +12,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
   <html>
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Online Market</title>
+    <link rel="stylesheet"  type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
   <div class="container">
-    <h3>Your order has been processed</h3>
+    <div class="page-header">
+      <h3>All orders</h3>
+    </div>
 
 
-    <table>
-      <th>User</th>
+    <table class="table table-bordered table-striped table-hover">
+      <th class="text-center">User</th>
       <c:forEach var = "dishnames" items="${totalOrdersDTO.totalNumberOfEachDishOrdered}">
-        <th>${dishnames.key}</th>
+        <th  class="text-center">${dishnames.key}</th>
       </c:forEach>
       <th></th>
       <tr>
@@ -56,7 +62,9 @@
       </c:forEach>
       <td>${totalOrdersDTO.totalDishesOrdered} / $${totalOrdersDTO.totalSum}</td></tr>
     </table>
-      <input type="submit" value="View cart">
   </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   </body>
   </html>

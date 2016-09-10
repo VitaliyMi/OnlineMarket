@@ -7,11 +7,10 @@
 </head>
 <body>
 <div class="container">
+    <div class="jumbotron">
     <h3>Hello, please introduce yourself!</h3>
-    <h4>Are you ${client.name} again</h4>
     <form:form action="/showMenu" modelAttribute="client" method="post">
-
-        Hi, my name is:<br>
+        What is your name? <br>
         <form:input type="text" path="name" placeholder="Your name"/><br><br>
         <input type="submit" value="Go to menu">
     </form:form>

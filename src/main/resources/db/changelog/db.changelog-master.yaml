@@ -93,7 +93,7 @@ databaseChangeLog:
              columns:
                - column:
                    name: dishName
-                   value: Fried potstoes
+                   value: Fried potatoes
                - column:
                    name: price
                    value: 2

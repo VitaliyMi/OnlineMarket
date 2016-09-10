@@ -1,4 +1,4 @@
-import application.web.MainControllerPerView;
+import application.web.WelcomeController;
 import application.Start;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,11 +22,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 public class MockTests {
 
     @Autowired
-    private MainControllerPerView mainControllerPerView;
+    private WelcomeController welcomeController;
 
     @Test
     public void login() throws Exception {
-        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(this.mainControllerPerView).build();
+        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(this.welcomeController).build();
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk());
 
@@ -34,7 +34,7 @@ public class MockTests {
 
     @Test
     public void checkMenu() throws Exception {
-        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(this.mainControllerPerView).build();
+        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(this.welcomeController).build();
         try {
             mockMvc.perform(get("/viewCart"));
         } catch (HttpSessionRequiredException noClient) {

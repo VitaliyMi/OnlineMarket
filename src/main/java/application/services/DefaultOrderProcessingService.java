@@ -1,5 +1,6 @@
 package application.services;
 
+import application.model.Client;
 import application.model.Dish;
 import application.model.Order;
 import application.repositories.DishesRepository;
@@ -21,6 +22,7 @@ public class DefaultOrderProcessingService implements OrderProcessingService {
     @Autowired
     public DefaultOrderProcessingService(DishesRepository repository) {
         this.repository = repository;
+        addInitialOrder();
     }
 
     @Override
@@ -80,6 +82,16 @@ public class DefaultOrderProcessingService implements OrderProcessingService {
             clientOrderMap.put(o.getClient().getName(), totalClientSum);
         }
         return clientOrderMap;
+    }
+
+    private void addInitialOrder()
+    {
+        Client c = new Client("Vitalii");
+        Dish d = repository.findByDishNameIgnoreCase("Frog legs");
+        Map<Dish, Integer> map = new HashMap<>();
+        map.put(d,2);
+        Order r = new Order(c, map);
+        orders.add(r);
     }
 }
 

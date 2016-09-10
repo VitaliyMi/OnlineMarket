@@ -21,7 +21,7 @@ public class Order implements Serializable {
         this.client = client;
     }
 
-    public Order(Map<Dish, Integer> orders, Client client) {
+    public Order(Client client,Map<Dish, Integer> orders) {
         this.dishes = orders;
         this.client = client;
     }
