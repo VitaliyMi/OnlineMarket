@@ -43,7 +43,7 @@ public class OdrerProcessingController {
 
 
     @RequestMapping(value = "/showResult")
-    public ModelAndView showResult(HttpSession session, @ModelAttribute Client client) {
+    public ModelAndView showResult(@ModelAttribute Client client) {
         ModelAndView mav = new ModelAndView("result");
 
         TotalOrdersDTO totalOrdersDTO = orderService.getOrderInformationForView(orderService.getAllOrders());

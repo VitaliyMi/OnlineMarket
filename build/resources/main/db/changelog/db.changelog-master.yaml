@@ -1,0 +1,114 @@
+databaseChangeLog:
+ - changeSet:
+      id: 1
+      author: Vitaliy
+      changes:
+        - createTable:
+           tableName: users
+           columns:
+             - column:
+                name: user_id
+                type: int
+                autoIncrement: true
+                constraints:
+                  primaryKey: true
+                  nullable: false
+             - column:
+                name: userName
+                type: varchar(50)
+                constraints:
+                  nullable: false
+        - createTable:
+           tableName: dishes
+           columns:
+             - column:
+                name: dish_id
+                type: int
+                autoIncrement: true
+                constraints:
+                  primaryKey: true
+                  nullable: false
+             - column:
+                name: dishName
+                type: varchar(50)
+                constraints:
+                  nullable: false
+             - column:
+                name: price
+                type: int
+                constraints:
+                  nullable: false
+             - column:
+                name: url
+                type: varchar(200)
+                constraints:
+                  nullable: false
+        - createTable:
+           tableName: transactions
+           columns:
+             - column:
+                name: transaction_id
+                type: int
+                autoIncrement: true
+                constraints:
+                   primaryKey: true
+                   nullable: false
+             - column:
+                name: dish_id
+                type: int
+                constraints:
+                   nullable: false
+                   foreignKeyName: dish_ID
+                   references: dishes(dish_id)
+             - column:
+                name: user_id
+                type: int
+                constraints:
+                   nullable: false
+                   foreignKeyName: user_ID
+                   references: users(user_id)
+             - column:
+                name: amount
+                type: int
+                constraints:
+                    nullable: false
+ - changeSet:
+       id: 2
+       author: Vitaliy
+       changes:
+         - insert:
+             tableName: dishes
+             columns:
+               - column:
+                   name: dishName
+                   value: Frog legs
+               - column:
+                   name: price
+                   value: 12
+               - column:
+                   name: url
+                   value: http://oddstuffmagazine.com/wp-content/uploads/2010/09/Fried-frog-legs.jpg
+         - insert:
+             tableName: dishes
+             columns:
+               - column:
+                   name: dishName
+                   value: Fried potatoes
+               - column:
+                   name: price
+                   value: 2
+               - column:
+                   name: url
+                   value: http://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/food/2014/11/28/AustralianTableBR113278/pan-fried-potatoes.jpg
+         - insert:
+             tableName: dishes
+             columns:
+               - column:
+                   name: dishName
+                   value: Greek salad
+               - column:
+                   name: price
+                   value: 5
+               - column:
+                   name: url
+                   value: http://www.laaloosh.com/wp-content/uploads/2015/09/Greek-Salad-2-675x462.jpg

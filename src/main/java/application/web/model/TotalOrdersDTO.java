@@ -12,22 +12,20 @@ import java.util.Map;
 
 public class TotalOrdersDTO {
 
-    @Autowired
-    MenuService service;
     private float totalSum;
     private float userTotalSum;
     private int totalDishesOrdered;
     private int[] numberOfDishesOrdered;
     private List<Order> orderList;
     private Map<String, Integer> totalNumberOfEachDishOrdered;
-    private Map<String,Integer> totalClientOrderPrice;
+    private Map<String, Integer> totalClientOrderPrice;
 
     public TotalOrdersDTO(List<Order> orderList) {
         this.orderList = orderList;
 
     }
-
-    public TotalOrdersDTO(List<Order> orderList, Map<String, Integer> totalNumberOfEachDishOrdered,Map<String, Integer> totalClientOrderPrice) {
+    
+    public TotalOrdersDTO(List<Order> orderList, Map<String, Integer> totalNumberOfEachDishOrdered, Map<String, Integer> totalClientOrderPrice) {
         this.orderList = orderList;
         this.totalNumberOfEachDishOrdered = totalNumberOfEachDishOrdered;
         this.totalClientOrderPrice = totalClientOrderPrice;

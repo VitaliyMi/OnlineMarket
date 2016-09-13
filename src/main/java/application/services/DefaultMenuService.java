@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component("service")
 public class DefaultMenuService implements MenuService {
@@ -25,15 +26,8 @@ public class DefaultMenuService implements MenuService {
 
     @Override
     public List<Dish> getMenu() {
-        List<Dish> dishList = repository.findAll();
-        return dishList;
+        return repository.findAll();
     }
-
-    @Override
-    public List<Dish> getSortedByPriceMenu() {
-        return new ArrayList<>();
-    }
-
 
     @Override
     public Dish findByName(String name) {
@@ -41,7 +35,7 @@ public class DefaultMenuService implements MenuService {
 
     }
 
-    public List<Dish> performSortedSearch(String sorter) {
+    public List<Dish> performSortedSearch(Optional<String> sorter) {
         if ("price".equals(sorter)) {
             return repository.findAllByOrderByPriceAsc();
         }

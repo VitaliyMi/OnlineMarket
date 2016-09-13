@@ -31,7 +31,7 @@ public class MenuController {
 
         List<Dish> menu;
         if (sorter.isPresent()) {
-            menu = service.performSortedSearch(sorter.get());
+            menu = service.performSortedSearch(sorter);
         } else {
             menu = service.getMenu();
         }

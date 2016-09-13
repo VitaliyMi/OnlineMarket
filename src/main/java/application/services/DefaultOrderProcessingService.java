@@ -47,15 +47,16 @@ public class DefaultOrderProcessingService implements OrderProcessingService {
         return totalOrdersDTO;
     }
 
+    //Mock method. Database request will be implemented.
     @Override
     public List<Order> getAllOrders() {
         return orders;
     }
 
+    //Mock method. Database update will be implemented.
     @Override
     public void saveOrder(Order order) {
         orders.add(order);
-        repository.findAll();
     }
 
     Map<String, Integer> initilizeTotalDishToAmountMap() {
