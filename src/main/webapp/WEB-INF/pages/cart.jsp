@@ -9,13 +9,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Market</title>
+  <link rel="stylesheet"  type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  Did we get everything clear?
-<form action="prosesOrder">
-  <table>
-    <th>Dish</th>  <th>Image</th> <th>Quantity</th> <th>Total price</th>
+<div class="page-header">
+  <h3>Did we get everything clear?</h3>
+  </div>
+<div class="jumbotron">
+  <table class="table table-bordered table-striped table-hover">
+    <th class="text-center">Dish</th>
+    <th class="text-center">Image</th>
+    <th class="text-center">Quantity</th>
+    <th class="text-center">Total price</th>
     <c:forEach var="dish" items="${order.dishes}">
      <tr>
        <td><c:out value="${dish.key.name}"/></td>
@@ -25,10 +34,14 @@
      </tr>
     </c:forEach>
   </table>
-    <input type="submit" value = "Prosess order"/>
+  <div class="btn-group btn-group-lg">
+    <form action="/processOrder">
+      <button type="submit" class="btn btn-success " >Process order</button>
+      <button type="submit" class="btn btn-warning" formaction="/showMenu">Show menu</button>
     </form>
-  <form action="showMenu">
-  <input type="submit" value="Change order">
-
+  </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

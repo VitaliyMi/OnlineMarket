@@ -4,13 +4,12 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-/**
- * Created by MSI on 30.04.2016.
- */
+
 @Entity
 @Table(name = "users")
-public class Client implements Serializable{
+public class Client implements Serializable {
 
     @Id
     @GeneratedValue
@@ -21,16 +20,14 @@ public class Client implements Serializable{
     private String name;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
-    private List<Transaction> transactions= new ArrayList<>();
+    private List<Transaction> transactions = new ArrayList<>();
 
 
-    public  Client()
-    {
+    public Client() {
         //explicit public constructor;
     }
 
-    public Client(String name)
-    {
+    public Client(String name) {
         this.name = name;
 
     }
@@ -57,8 +54,7 @@ public class Client implements Serializable{
         this.name = name;
     }
 
-    public void addTransactions(List<Transaction> transactionList)
-    {
+    public void addTransactions(List<Transaction> transactionList) {
         transactions.addAll(transactionList);
     }
 
@@ -70,20 +66,14 @@ public class Client implements Serializable{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Client)) return false;
-
         Client client = (Client) o;
-
-        if (id != client.id) return false;
-        if (!name.equals(client.name)) return false;
-        if (!transactions.equals(client.transactions)) return false;
-
-        return true;
+        return getId() == client.getId() &&
+                Objects.equals(getName(), client.getName()) &&
+                Objects.equals(getTransactions(), client.getTransactions());
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + name.hashCode();
-        return result;
+        return Objects.hash(getId(), getName(), getTransactions());
     }
 }

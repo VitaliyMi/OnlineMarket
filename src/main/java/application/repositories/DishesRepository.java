@@ -5,19 +5,14 @@ import org.springframework.data.repository.Repository;
 
 import java.util.List;
 
+public interface DishesRepository extends Repository<Dish, Integer> {
 
-/**
- * Created by MSI on 05.06.2016.
- */
-public interface DishesRepository  extends Repository<Dish, Integer>
-{
+    List<Dish> findAll();
 
-   List<Dish> findAll();
+    Dish findByDishNameIgnoreCase(String dishName);
 
-   Dish findByDishNameIgnoreCase(String dishName);
+    List<Dish> findAllByOrderByDishNameAsc();
 
-   List<Dish> findAllByOrderByDishNameAsc();
-
-   List<Dish> findAllByOrderByPriceAsc();
+    List<Dish> findAllByOrderByPriceAsc();
 
 }

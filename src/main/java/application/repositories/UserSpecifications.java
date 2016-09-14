@@ -1,7 +1,9 @@
 package application.repositories;
 
+
 /**
- * Created by MSI on 05.06.2016.
+ *This is a mock class which will be implemented later during development process
  */
+
 public class UserSpecifications {
 }

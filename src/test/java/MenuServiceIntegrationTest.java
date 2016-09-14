@@ -1,5 +1,3 @@
-
-
 import application.Start;
 import application.model.Dish;
 import org.junit.Test;
@@ -7,7 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import application.services.DishService;
+import application.services.DefaultMenuService;
 
 import java.util.List;
 
@@ -18,10 +16,10 @@ import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Start.class)
-public class ServiceIntegrationTest {
+public class MenuServiceIntegrationTest {
 
     @Autowired
-    DishService dishService;
+    DefaultMenuService dishService;
 
     @Test
     public void examineMenu() {
