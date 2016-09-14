@@ -24,7 +24,7 @@ public class TotalOrdersDTO {
         this.orderList = orderList;
 
     }
-    
+
     public TotalOrdersDTO(List<Order> orderList, Map<String, Integer> totalNumberOfEachDishOrdered, Map<String, Integer> totalClientOrderPrice) {
         this.orderList = orderList;
         this.totalNumberOfEachDishOrdered = totalNumberOfEachDishOrdered;

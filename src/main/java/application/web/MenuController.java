@@ -26,8 +26,7 @@ public class MenuController {
 
     @RequestMapping("/showMenu")
     public ModelAndView requestHandlingMethod(HttpServletRequest request, @ModelAttribute Client client) {
-        Optional<String> sorter = null;
-        sorter = Optional.ofNullable(request.getParameter("sorter"));
+        Optional<String> sorter =Optional.ofNullable(request.getParameter("sorter"));
 
         List<Dish> menu;
         if (sorter.isPresent()) {
