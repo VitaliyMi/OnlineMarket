@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="page-header">
-<h1>Thank you. You order has been processed</h1>
+<h1>Thank you. You order has been placed</h1>
 </div>
 <%--
 55c12d536b53356e424d8da1d7fc84c0166a44c2

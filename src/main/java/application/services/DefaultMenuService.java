@@ -36,10 +36,10 @@ public class DefaultMenuService implements MenuService {
     }
 
     public List<Dish> performSortedSearch(Optional<String> sorter) {
-        if ("price".equals(sorter)) {
+        if ("price".equals(sorter.get())) {
             return repository.findAllByOrderByPriceAsc();
         }
-        if ("description".equals(sorter)) {
+        if ("description".equals(sorter.get())) {
             return repository.findAllByOrderByDishNameAsc();
         }
         return new ArrayList<>();
